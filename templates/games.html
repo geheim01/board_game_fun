@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Board Games Collection</h1>
+
+<div class="form-group">
+    <input type="text" class="form-control" id="search-input" placeholder="Search...">
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th><a href="{{ url_for('games', sortby='name', order='asc') }}">Name</a></th>
+            <th><a href="{{ url_for('games', sortby='min_players', order='asc') }}">Min Players</a></th>
+            <th><a href="{{ url_for('games', sortby='max_players', order='asc') }}">Max Players</a></th>
+            <th><a href="{{ url_for('games', sortby='min_playtime', order='asc') }}">Playtime (min)</a></th>
+        </tr>
+    </thead>
+    <tbody id="games-table-body">
+        {% include 'games_table.html' %}
+    </tbody>
+</table>
+
+<script>
+    var searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener('change', handleSearch);
+    searchInput.addEventListener('keyup', handleSearch);
+
+    function handleSearch() {
+        console.log("Search input value: ", searchInput.value); // added console log
+        var searchValue = searchInput.value;
+        fetch('{{ url_for("games") }}?search=' + searchValue, {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+            .then(response => response.json())
+            .then(data => {
+                var gamesTableBody = document.getElementById('games-table-body');
+                gamesTableBody.innerHTML = '';
+                data.forEach(function (game) {
+                    var row = '<tr>' +
+                        '<td><img src="' + game.image_url + '" style="height: 100px;"></td>' +
+                        '<td>' + game.name + '</td>' +
+                        '<td>' + game.min_players + '</td>' +
+                        '<td>' + game.max_players + '</td>' +
+                        '<td>' + game.min_playtime + '</td>' +
+                        '</tr>';
+                    gamesTableBody.innerHTML += row;
+                });
+            });
+    }
+</script>
+
+
+
+{% endblock %}

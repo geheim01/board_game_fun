@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Welcome to My Board Game Collection</h1>
+    <p>Explore my collection of board games and find your next favorite game!</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Categories</h2>
+            <p>Browse games by category:</p>
+            <ul>
+                <li><a href="#">Economic</a></li>
+                <li><a href="#">Family Game</a></li>
+                <li><a href="#">Negotiation</a></li>
+                <li><a href="#">Territory Building</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Mechanics</h2>
+            <p>Browse games by mechanics:</p>
+            <ul>
+                <li><a href="#">Dice Rolling</a></li>
+                <li><a href="#">Hand Management</a></li>
+                <li><a href="#">Set Collection</a></li>
+                <li><a href="#">Worker Placement</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Players</h2>
+            <p>Browse games by number of players:</p>
+            <ul>
+                <li><a href="#">2 Players</a></li>
+                <li><a href="#">3-4 Players</a></li>
+                <li><a href="#">5-6 Players</a></li>
+                <li><a href="#">7+ Players</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
