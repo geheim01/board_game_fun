@@ -3,7 +3,12 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__, template_folder='templates')
 
-data = pd.read_csv("board_games_atlas.csv")
+data = pd.read_csv("data/board_games_atlas.csv")
+data.drop(columns=["Unnamed: 0"])
+data['min_players'] = data['min_players'].astype('Int64')
+data['max_players'] = data['min_players'].astype('Int64')
+data['min_playtime'] = data['min_playtime'].astype('Int64')
+print(data.head())
 
 @app.route('/')
 def index():
