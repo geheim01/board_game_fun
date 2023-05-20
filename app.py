@@ -16,6 +16,7 @@ from flask import Flask, jsonify, render_template, request
 app = Flask(__name__, template_folder="templates")
 
 data = pd.read_csv("data/board_games_atlas.csv")
+
 data.drop(columns=["Unnamed: 0"])
 data["min_players"] = data["min_players"].astype("Int64")
 data["max_players"] = data["min_players"].astype("Int64")
