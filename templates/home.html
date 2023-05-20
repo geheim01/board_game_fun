@@ -12,30 +12,30 @@
             <h2>Categories</h2>
             <p>Browse games by category:</p>
             <ul>
-                <li><a href="#">Economic</a></li>
-                <li><a href="#">Family Game</a></li>
-                <li><a href="#">Negotiation</a></li>
-                <li><a href="#">Territory Building</a></li>
+                <li><a href="{{ url_for('games', category='Economic') }}">Economic</a></li>
+                <li><a href="{{ url_for('games', category='Family Game') }}">Family Game</a></li>
+                <li><a href="{{ url_for('games', category='Negotiation') }}">Negotiation</a></li>
+                <li><a href="{{ url_for('games', category='Territory Building') }}">Territory Building</a></li>
             </ul>
         </div>
         <div class="col-md-4">
             <h2>Mechanics</h2>
             <p>Browse games by mechanics:</p>
             <ul>
-                <li><a href="#">Dice Rolling</a></li>
-                <li><a href="#">Hand Management</a></li>
-                <li><a href="#">Set Collection</a></li>
-                <li><a href="#">Worker Placement</a></li>
+                <li><a href="{{ url_for('games', mechanics='Dice Rolling') }}">Dice Rolling</a></li>
+                <li><a href="{{ url_for('games', mechanics='Hand Management') }}">Hand Management</a></li>
+                <li><a href="{{ url_for('games', mechanics='Set Collection') }}">Set Collection</a></li>
+                <li><a href="{{ url_for('games', mechanics='Worker Placement') }}">Worker Placement</a></li>
             </ul>
         </div>
         <div class="col-md-4">
             <h2>Players</h2>
             <p>Browse games by number of players:</p>
             <ul>
-                <li><a href="#">2 Players</a></li>
-                <li><a href="#">3-4 Players</a></li>
-                <li><a href="#">5-6 Players</a></li>
-                <li><a href="#">7+ Players</a></li>
+                <li><a href="{{ url_for('games', min_players=2, max_players=2) }}">2 Players</a></li>
+                <li><a href="{{ url_for('games', min_players=3, max_players=4) }}">3-4 Players</a></li>
+                <li><a href="{{ url_for('games', min_players=5, max_players=6) }}">5-6 Players</a></li>
+                <li><a href="{{ url_for('games', min_players=7) }}">7+ Players</a></li>
             </ul>
         </div>
     </div>
