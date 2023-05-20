@@ -1,7 +1,7 @@
 {% for game in games %}
 <tr>
-    <td><img src="{{ game.image_url }}" style="height: 100px;"></td>
-    <td>{{ game.name }}</td>
+    <td><img class="game_img" src="{{ game.image_url }}" style="height: 100px;"></td>
+    <td> {{ game.name }}</td>
     <td>{{ game.min_players }}</td>
     <td>{{ game.max_players }}</td>
     <td>{{ game.min_playtime }}</td>
